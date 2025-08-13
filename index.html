@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="TH">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <meta name="viewport" content="width=device-width">
+    <title>เอ จักรพรรดิ </title>
+    <link rel="stylesheet" href="css/generator.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    </script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="krit-1.png">
+
+    <style>
+        .chat-content-list {
+            will-change: transform;
+            /* Tối ưu hóa hiệu suất */
+            overflow-anchor: none;
+            /* Ngăn chặn scroll tự động */
+            overscroll-behavior: contain;
+            /* Ngăn hiệu ứng bounce */
+        }
+
+        #avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        #avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .loading-section {
+            margin: 15px 0;
+        }
+
+        .loading-item {
+            margin-bottom: 15px;
+            width: 300px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .loading-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 25px;
+        }
+
+        .loading-header span{
+            font-size: 25px;
+        }
+
+        .loading-bar-container {
+            width: 100%;
+            height: 20px;
+            background: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loading-bar {
+            height: 100%;
+            width: 0%;
+            border-radius: 10px;
+            transition: width 2s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 5px;
+            font-size: 12px;
+            color: white;
+        }
+
+        .money-bar {
+            background: linear-gradient(90deg, #2e7d32, #4CAF50);
+        }
+
+        .health-bar {
+            background: linear-gradient(90deg, #1565C0, #2196F3);
+        }
+
+        .career-bar {
+            background: linear-gradient(90deg, #FF8F00, #FFC107);
+        }
+
+        .love-bar {
+            background: linear-gradient(90deg, #C2185B, #E91E63);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="wrap" id="screenFirst">
+
+        <div class="chat show-chat zoomIn animated">
+
+            <div class="chat show-chat zoomIn animated">
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <div class="chat-header-container down">
+                            <div class="chat-header-container-wrapper">
+                                <div class="chat-header-container-image-left">
+                                    <div id="avatar" class="chat-header-container-image">
+                                        <img src="krit-1.png" alt="">
+                                    </div>
+                                    <div class="chat-header-container-image">
+                                        <img src="img/message-icon.png" alt="">
+                                    </div>
+                                    <div class="chat-header-container-image" style="color:white">
+                                        <span><b style="font-size: 30px;">អ៊េ ចក្រពុទ្ធ </b></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="chat-content"
+                        style="background-color: gainsboro;background-image: url(img/background.jpg);background-size: cover;height: 100%; background-position: center;">
+                        <div class="chat-content-container">
+                            <div class="chat-content-list">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form action="" method="get" id="cont_form" class="form-order">
+                <div class="form_block">
+                    <!-- <div class="prices_block">Order form
+                        amulet by Rudy Baldwin for <span class="new_price_val">1990</span><span class="new_price_cur" >₱</span></div>
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Name" required="" class="form-control input-lg">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="phone" placeholder="Phone" required="" class="form-control input-lg">
+                    </div>
+                    <input type="hidden" name="comments"> -->
+                    <input type="submit" value="បញ្ជាទិញគ្រឿងសំណាង" class="btn-primary">
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="js/typed.js"></script>
+
+    <span class="country_action" style="opacity: 0">whole Filipines</span>
+    <select name="country" id="select_city"></select>
+    <span class="new_price_val" style="opacity: 0"></span>
+    <span class="new_price_cur" style="opacity: 0"></span>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-url-parser/2.3.1/purl.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+
+
+    <script src="js/main.js"></script>
+    <script src="price.js"></script>
+    <span class="new_price_val"></span>
+    <script>
+        setInterval(function () {
+            let name_city = $('#new_price_val').text();
+            $('.new_price_val').text(name_city);
+            $('.new_price_cur').text($('#new_price_cur').text());
+        }, 300)
+    </script>
+    <script>
+        function animateLoadingBars() {
+            const loadingBars = document.querySelectorAll('.loading-bar');
+
+            loadingBars.forEach(bar => {
+                const target = parseInt(bar.getAttribute('data-target'));
+                const percentElement = bar.closest('.loading-item').querySelector('.loading-percent');
+
+
+                bar.style.width = '0%';
+                bar.textContent = '0%';
+                percentElement.textContent = '0%';
+
+                setTimeout(() => {
+                    bar.style.width = target + '%';
+                    bar.textContent = target + '%';
+                    percentElement.textContent = target + '%';
+                }, 100);
+            });
+        }
+
+        const observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                if (mutation.addedNodes.length) {
+                    const newLoadingBars = document.querySelectorAll('.loading-bar:not([data-animated])');
+                    if (newLoadingBars.length > 0) {
+                        newLoadingBars.forEach(bar => {
+                            bar.setAttribute('data-animated', 'true');
+                        });
+                        setTimeout(animateLoadingBars, 500); 
+                    }
+                }
+            });
+        });
+
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(animateLoadingBars, 1000);
+        });
+    </script>
+</body>
+
+</html>
