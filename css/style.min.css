@@ -10175,7 +10175,7 @@ html.over.wrapper-button.phone aflow {
   color: #90c248;
   font-size: 15px;
   font-weight: 500;
-  padding: 3px 0 15px 0;
+  /* padding: 3px 0 15px 0; */
   width: 100%;
 }
 .chat-content-item .chat-content-desc-item span:before {

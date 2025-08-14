@@ -16,17 +16,13 @@
     <style>
         .chat-content-list {
             will-change: transform;
-            /* Tối ưu hóa hiệu suất */
             overflow-anchor: none;
-            /* Ngăn chặn scroll tự động */
             overscroll-behavior: contain;
-            /* Ngăn hiệu ứng bounce */
         }
 
         #avatar {
             width: 50px;
             height: 50px;
-            /* border-radius: 50%; */
             overflow: hidden;
         }
 
@@ -54,9 +50,20 @@
             justify-content: space-between;
             margin-bottom: 5px;
             font-size: 25px;
+            align-items: center;
         }
 
-        .loading-header span{
+        .loading-header span:first-child {
+            flex: 4;
+        }
+
+        .loading-header span:last-child {
+            flex: 1;
+            text-align: right;
+            padding-bottom: 45px;
+        }
+
+        .loading-header span {
             font-size: 25px;
         }
 
@@ -129,7 +136,7 @@
 
 
                     <div class="chat-content"
-                        style="background-color: gainsboro;background-image: url(img/background.jpg);background-size: cover;height: 100%; background-position: -53px center;">
+                        style="background-color: gainsboro;background-image: url(img/background.jpg);background-size: cover;height: 100%; background-position: center;">
                         <div class="chat-content-container">
                             <div class="chat-content-list">
                             </div>
@@ -205,7 +212,7 @@
                         newLoadingBars.forEach(bar => {
                             bar.setAttribute('data-animated', 'true');
                         });
-                        setTimeout(animateLoadingBars, 500); 
+                        setTimeout(animateLoadingBars, 500);
                     }
                 }
             });
